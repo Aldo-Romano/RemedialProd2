@@ -1,0 +1,6 @@
+F:\Ingenieria\9 cuatrimestre\Desarrollo Web Integral\RemedialProdNum2\RemedialProdNum2\ClassCapaAccesoDatos\bin\Debug\ClassCapaAccesoDatos.dll
+F:\Ingenieria\9 cuatrimestre\Desarrollo Web Integral\RemedialProdNum2\RemedialProdNum2\ClassCapaAccesoDatos\bin\Debug\ClassCapaAccesoDatos.pdb
+F:\Ingenieria\9 cuatrimestre\Desarrollo Web Integral\RemedialProdNum2\RemedialProdNum2\ClassCapaAccesoDatos\obj\Debug\ClassCapaAccesoDatos.csprojAssemblyReference.cache
+F:\Ingenieria\9 cuatrimestre\Desarrollo Web Integral\RemedialProdNum2\RemedialProdNum2\ClassCapaAccesoDatos\obj\Debug\ClassCapaAccesoDatos.csproj.CoreCompileInputs.cache
+F:\Ingenieria\9 cuatrimestre\Desarrollo Web Integral\RemedialProdNum2\RemedialProdNum2\ClassCapaAccesoDatos\obj\Debug\ClassCapaAccesoDatos.dll
+F:\Ingenieria\9 cuatrimestre\Desarrollo Web Integral\RemedialProdNum2\RemedialProdNum2\ClassCapaAccesoDatos\obj\Debug\ClassCapaAccesoDatos.pdb
