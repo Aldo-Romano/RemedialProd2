@@ -8,9 +8,9 @@ namespace ClassCapaEntidades
 {
     public class ProgramaEducativo
     {
-        public int Id_pe { get; set; }
+        public int Id_Pe { get; set; }
         public string ProgramaEd { get; set; }
-        public int F_carrera { get; set; }
+        public int F_Carrera { get; set; }
         public string Extra { get; set; }
 
     }
