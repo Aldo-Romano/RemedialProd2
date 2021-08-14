@@ -41,6 +41,46 @@ namespace WebPresentacion
                 string ms = "";
                 object1.InsertarCarrera(temp, ref ms);
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "mensaje1", "msbox('¡Insertado!','" + ms + "','success')", true);
+                string a = "";
+
+                GridView1.DataSource = object1.DatosEnGridCarrera(dlCarrera.SelectedValue ,ref a);
+                GridView1.DataBind();
+            }
+            else
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "mensaje2", "msbox('¡Error!','Inserte todos los datos','error')", true);
+            }
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lbCarrera.Text = GridView1.SelectedRow.Cells[1].Text;
+
+
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+
+            string a = "";
+
+             object1.EliminarCarrera(lbCarrera.Text, ref a);        
+
+        }
+
+        protected void Button2_Click1(object sender, EventArgs e)
+        {
+            if (dlCarrera.Text != "")
+            {
+                Carrera temp = new Carrera()
+                {
+                    NombreCarrera = dlCarrera1.SelectedValue
+                };
+
+                string ms = "";
+                object1.ActualizarCarrera(temp,lbCarrera.Text, ref ms);
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "mensaje1", "msbox('¡Insertado!','" + ms + "','success')", true);
+
             }
             else
             {

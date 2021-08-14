@@ -50,6 +50,7 @@
          <asp:Label ID="Label1" runat="server"  class="form-label" Text="Programa Educativo:"></asp:Label>
          <asp:TextBox ID="txtProgramaEd" runat="server" class="form-control"></asp:TextBox>
          <asp:Label ID="Label2" runat="server"  class="form-label" Text="Carrera Seleccionada:"></asp:Label>
+         <br />
          <asp:DropDownList ID="dlCarrera" runat="server"></asp:DropDownList>
          <asp:Label ID="Label3" runat="server"  class="form-label" Text="Extra:"></asp:Label>
          <asp:TextBox ID="txtExtra" runat="server" class="form-control"></asp:TextBox>

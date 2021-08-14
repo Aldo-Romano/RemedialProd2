@@ -21,6 +21,8 @@ namespace WebPresentacion
             {
                 object1 = new LogicaNegociosCarrera();
                 Session["object1"] = object1;
+                //DropCarrera();
+
 
             }
             else
@@ -28,6 +30,8 @@ namespace WebPresentacion
                 object1 = (LogicaNegociosCarrera)Session["object1"];
             }
         }
+
+       
 
         protected void Button1_Click(object sender, EventArgs e)
         {
@@ -37,7 +41,7 @@ namespace WebPresentacion
                 ProgramaEducativo temp = new ProgramaEducativo()
                 {
                     ProgramaEd = txtProgramaEd.Text,
-                    F_Carrera = dlCarrera.SelectedIndex,
+                    F_Carrera = Convert.ToInt16(dlCarrera.SelectedValue),
                     Extra = txtExtra.Text
                 };
 
