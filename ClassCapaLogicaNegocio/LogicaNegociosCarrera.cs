@@ -53,11 +53,11 @@ namespace ClassCapaLogicaNegocio
             return tablaS;
         }
 
-        public SqlDataReader EliminarCarrera(string nom, ref string mens_salida)
+        public SqlDataReader EliminarCarrera(Carrera carreraD, ref string mens_salida)
         {
 
             SqlConnection conextemp = null;
-            string query = "delete from Carrera where nombreCarrea='" + nom + "'";
+            string query = "delete from Carrera where nombreCarrea='" + carreraD.NombreCarrera + "'";
 
             conextemp = obAcc.AbrirConexion(ref mens_salida);
 
@@ -67,26 +67,19 @@ namespace ClassCapaLogicaNegocio
             return datos;
         }
 
-        public Boolean ActualizarCarrera(Carrera carrera,string datoAnterior, ref string mensaje)
+        public SqlDataReader ActualizarCarrera(Carrera carrera,string datoAnterior, ref string mensaje)
         {
-            SqlParameter[] param1 = new SqlParameter[1];
+            SqlConnection conextemp = null;
+            string query = "UPDATE Carrera SET nombreCarrea='" + carrera.NombreCarrera + "' where nombreCarrea='" + datoAnterior + "'";
 
-            param1[0] = new SqlParameter
-            {
-                ParameterName = "nom",
-                SqlDbType = SqlDbType.VarChar,
-                Size = 50,
-                Direction = ParameterDirection.Input,
-                Value = carrera.NombreCarrera
+            conextemp = obAcc.AbrirConexion(ref mensaje);
 
-            };
+            SqlDataReader datos = null;
+            datos = obAcc.ConsultaReader(query, conextemp, ref mensaje);
 
-            string sentenciaSql = "UPDATE Carrera SET nombreCarrea='"+"@nom"+"' where nombreCarrea='" + datoAnterior + "'";
+            return datos;
 
-            Boolean salida = false;
-            salida = obAcc.ModificaBDMasSegura(sentenciaSql, obAcc.AbrirConexion(ref mensaje), ref mensaje, param1);
-
-            return salida;
+           
         }
 
         public Boolean InsertarProgramaED(ProgramaEducativo programapd, ref string mensaje)

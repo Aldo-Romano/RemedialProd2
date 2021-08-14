@@ -61,10 +61,14 @@ namespace WebPresentacion
 
         protected void Button3_Click(object sender, EventArgs e)
         {
+            Carrera temp = new Carrera()
+            {
+                NombreCarrera = lbCarrera.Text
+            };
 
             string a = "";
 
-             object1.EliminarCarrera(lbCarrera.Text, ref a);        
+             object1.EliminarCarrera(temp, ref a);        
 
         }
 
