@@ -3,3 +3,4 @@ F:\Ingenieria\9 cuatrimestre\Desarrollo Web Integral\RemedialProdNum2\RemedialPr
 F:\Ingenieria\9 cuatrimestre\Desarrollo Web Integral\RemedialProdNum2\RemedialProdNum2\ClassCapaEntidades\obj\Debug\ClassCapaEntidades.csproj.CoreCompileInputs.cache
 F:\Ingenieria\9 cuatrimestre\Desarrollo Web Integral\RemedialProdNum2\RemedialProdNum2\ClassCapaEntidades\obj\Debug\ClassCapaEntidades.dll
 F:\Ingenieria\9 cuatrimestre\Desarrollo Web Integral\RemedialProdNum2\RemedialProdNum2\ClassCapaEntidades\obj\Debug\ClassCapaEntidades.pdb
+F:\Ingenieria\9 cuatrimestre\Desarrollo Web Integral\RemedialProdNum2\RemedialProdNum2\ClassCapaEntidades\obj\Debug\ClassCapaEntidades.csprojAssemblyReference.cache
