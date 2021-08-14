@@ -76,8 +76,8 @@
     <Content Include="IMG\UtpFondo.png" />
     <Content Include="Inicio.aspx" />
     <Content Include="js\bootstrap.bundle.min.js" />
-    <Content Include="ProgramaEducativo.aspx" />
     <Content Include="RegistroCarrera.aspx" />
+    <Content Include="RegistroProgramaEducativoLabs.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -88,13 +88,6 @@
     <Compile Include="Inicio.aspx.designer.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ProgramaEducativo.aspx.cs">
-      <DependentUpon>ProgramaEducativo.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ProgramaEducativo.aspx.designer.cs">
-      <DependentUpon>ProgramaEducativo.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistroCarrera.aspx.cs">
       <DependentUpon>RegistroCarrera.aspx</DependentUpon>
@@ -102,6 +95,13 @@
     </Compile>
     <Compile Include="RegistroCarrera.aspx.designer.cs">
       <DependentUpon>RegistroCarrera.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistroProgramaEducativoLabs.aspx.cs">
+      <DependentUpon>RegistroProgramaEducativoLabs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistroProgramaEducativoLabs.aspx.designer.cs">
+      <DependentUpon>RegistroProgramaEducativoLabs.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
