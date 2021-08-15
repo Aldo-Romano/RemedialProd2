@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\sweetalert2.min.css" />
     <Content Include="IMG\Fondo.png" />
     <Content Include="IMG\FondoW.jpg" />
     <Content Include="IMG\IMG1.jpg" />
@@ -78,6 +79,8 @@
     <Content Include="IMG\UtpFondo.png" />
     <Content Include="Inicio.aspx" />
     <Content Include="js\bootstrap.bundle.min.js" />
+    <Content Include="js\JavaScript.js" />
+    <Content Include="js\sweetalert2.all.min.js" />
     <Content Include="RegistroCarrera.aspx" />
     <Content Include="RegistroProgramaEducativoLabs.aspx" />
     <Content Include="Web.config" />

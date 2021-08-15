@@ -38,17 +38,17 @@ namespace WebPresentacion
                     NombreCarrera = dlCarrera.SelectedValue
                 };
 
-                string ms = "";
-                object1.InsertarCarrera(temp, ref ms);
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "mensaje1", "msbox('¡Insertado!','" + ms + "','success')", true);
-                string a = "";
+                string mensaje1 = "";
+                object1.InsertarCarrera(temp, ref mensaje1);
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "mensaje1", "SweetAlert('¡Insertado!','" + mensaje1 + "','success')", true);
+                string mensaje2 = "";
 
-                GridView1.DataSource = object1.DatosEnGridCarrera(dlCarrera.SelectedValue ,ref a);
+                GridView1.DataSource = object1.DatosEnGridCarrera(dlCarrera.SelectedValue ,ref mensaje2);
                 GridView1.DataBind();
             }
             else
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "mensaje2", "msbox('¡Error!','Inserte todos los datos','error')", true);
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "mensaje2", "SweetAlert('¡Error!','Inserte todos los datos','error')", true);
             }
         }
 
@@ -66,9 +66,11 @@ namespace WebPresentacion
                 NombreCarrera = lbCarrera.Text
             };
 
-            string a = "";
+            string mensaje1 = "";
 
-             object1.EliminarCarrera(temp, ref a);        
+             object1.EliminarCarrera(temp, ref mensaje1);
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "mensaje1", "SweetAlert('¡Eliminado!','Se ha elimando correctamente','success')", true);
+
 
         }
 
@@ -81,14 +83,14 @@ namespace WebPresentacion
                     NombreCarrera = dlCarrera1.SelectedValue
                 };
 
-                string ms = "";
-                object1.ActualizarCarrera(temp,lbCarrera.Text, ref ms);
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "mensaje1", "msbox('¡Insertado!','" + ms + "','success')", true);
+                string mensaje1 = "";
+                object1.ActualizarCarrera(temp,lbCarrera.Text, ref mensaje1);
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "SweetAlert('¡Actualizado!','Registro actualizado','success')", true);
 
             }
             else
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "mensaje2", "msbox('¡Error!','Inserte todos los datos','error')", true);
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "mensaje2", "SweetAlert('¡Error!','Inserte todos los datos','error')", true);
             }
         }
     }

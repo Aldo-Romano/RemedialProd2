@@ -10,6 +10,10 @@
       <link href="css/bootstrap.min.css" rel="stylesheet" />
     <script src="js/bootstrap.bundle.min.js"></script>
 
+    <link href="css/sweetalert2.min.css" rel="stylesheet" />
+    <script src="js/sweetalert2.all.min.js"></script>
+    <script src="js/JavaScript.js"></script>
+
 </head>
 <body style="background-image:url(IMG/FondoW.jpg)">
 
