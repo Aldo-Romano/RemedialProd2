@@ -52,7 +52,7 @@
          <div class="modal-body">
          <div class="mb-3">
          <asp:Label ID="Label1" runat="server"  class="form-label" Text="Nombre de la Carrera:"></asp:Label>
-             <asp:DropDownList ID="dlCarrera" runat="server">
+             <asp:DropDownList ID="dropCarrera" runat="server">
                           <asp:ListItem></asp:ListItem>
                           <asp:ListItem>Ambiental</asp:ListItem>
                           <asp:ListItem>Automotriz</asp:ListItem>
@@ -112,7 +112,7 @@
          <div class="modal-body">
          <div class="mb-3">
          <asp:Label ID="Label3" runat="server"  class="form-label" Text="Nombre de la Carrera:"></asp:Label>
-             <asp:DropDownList ID="dlCarrera1" runat="server">
+             <asp:DropDownList ID="dropCarrera1" runat="server">
                           <asp:ListItem></asp:ListItem>
                           <asp:ListItem>Ambiental</asp:ListItem>
                           <asp:ListItem>Automotriz</asp:ListItem>

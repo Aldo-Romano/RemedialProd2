@@ -33,13 +33,13 @@ namespace WebPresentacion
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// Control dlCarrera.
+        /// Control dropCarrera.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dlCarrera;
+        protected global::System.Web.UI.WebControls.DropDownList dropCarrera;
 
         /// <summary>
         /// Control Button1.
@@ -87,13 +87,13 @@ namespace WebPresentacion
         protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
-        /// Control dlCarrera1.
+        /// Control dropCarrera1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dlCarrera1;
+        protected global::System.Web.UI.WebControls.DropDownList dropCarrera1;
 
         /// <summary>
         /// Control Button2.

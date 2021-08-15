@@ -21,8 +21,6 @@ namespace WebPresentacion
             {
                 object1 = new LogicaNegociosCarrera();
                 Session["object1"] = object1;
-                //DropCarrera();
-
 
             }
             else
@@ -36,22 +34,98 @@ namespace WebPresentacion
         protected void Button1_Click(object sender, EventArgs e)
         {
 
-            if (txtProgramaEd.Text != "" && txtExtra.Text != "" && dlCarrera.Text != "")
+            if (txtProgramaEd.Text != "" && txtExtra.Text != "" && dropProgramaED.Text != "")
             {
                 ProgramaEducativo temp = new ProgramaEducativo()
                 {
                     ProgramaEd = txtProgramaEd.Text,
-                    F_Carrera = Convert.ToInt16(dlCarrera.SelectedValue),
+                    F_Carrera = Convert.ToInt16(dropProgramaED.SelectedValue),
                     Extra = txtExtra.Text
                 };
 
-                string ms = "";
-                object1.InsertarProgramaED (temp, ref ms);
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "mensaje1", "msbox('¡Insertado!','" + ms + "','success')", true);
+                string mensaje1 = "";
+                object1.InsertarProgramaED (temp, ref mensaje1);
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "mensaje1", "SweetAlert('¡Insertado!','" + mensaje1 + "','success')", true);
+                string mensaje2 = "";
+                GridView1.DataSource = object1.DatosEnGridProgramaED(Convert.ToInt16(dropProgramaED.SelectedValue), ref mensaje2);
+                GridView1.DataBind();
             }
             else
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "mensaje2", "msbox('¡Error!','Inserte todos los datos','error')", true);
+            }
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lbProgramaEd.Text = GridView1.SelectedRow.Cells[1].Text;
+
+        }
+        protected void Button2_Click1(object sender, EventArgs e)
+        {
+            if (dropProgramaEdActualizar.Text != "")
+            {
+                ProgramaEducativo temp = new ProgramaEducativo()
+                {
+                    ProgramaEd = txtProgramaEd.Text,
+                    F_Carrera = Convert.ToInt16(dropProgramaEdActualizar.SelectedValue),
+                    Extra = txtExtraA.Text
+                };
+
+                string mensaje1 = "";
+                object1.ActualizarProgramaED(temp, lbProgramaEd.Text, ref mensaje1);
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "SweetAlert('¡Actualizado!','Registro actualizado','success')", true);
+
+            }
+            else
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "mensaje2", "SweetAlert('¡Error!','Inserte todos los datos','error')", true);
+            }
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            ProgramaEducativo temp = new ProgramaEducativo()
+            {
+               ProgramaEd = txtProgramaEd.Text
+            };
+
+            string mensaje1 = "";
+
+            object1.EliminarProgramaEducativo(temp, ref mensaje1);
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "mensaje1", "SweetAlert('¡Eliminado!','Se ha elimando correctamente','success')", true);
+
+        }
+
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            List<Carrera> listaA = null;
+            string m = "";
+            listaA = object1.DevuelveCarreraEnID(ref m);
+
+            if (listaA != null)
+            {
+                dropProgramaED.Items.Clear();
+                foreach (Carrera a in listaA)
+                {
+                    dropProgramaED.Items.Add(new ListItem(a.NombreCarrera, a.Id_Carrera.ToString()));
+                }
+            }
+        }
+
+        protected void Button5_Click(object sender, EventArgs e)
+        {
+            List<Carrera> listaA = null;
+            string m = "";
+            listaA = object1.DevuelveCarreraEnID(ref m);
+
+            if (listaA != null)
+            {
+                dropProgramaEdActualizar.Items.Clear();
+                foreach (Carrera a in listaA)
+                {
+                    dropProgramaEdActualizar.Items.Add(new ListItem(a.NombreCarrera, a.Id_Carrera.ToString()));
+                }
             }
         }
     }

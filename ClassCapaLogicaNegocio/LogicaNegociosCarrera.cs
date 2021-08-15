@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using ClassCapaAccesoDatos;
 using ClassCapaEntidades;
 using System.Data;
 using System.Data.SqlClient;
+
 
 namespace ClassCapaLogicaNegocio
 {
@@ -82,6 +82,44 @@ namespace ClassCapaLogicaNegocio
            
         }
 
+        public List<Carrera> DevuelveCarreraEnID(ref string msj)
+        {
+            SqlConnection conextemp = null;
+            string query = "select * from Carrera";
+
+            conextemp = obAcc.AbrirConexion(ref msj);
+
+            SqlDataReader datos = null;
+            datos = obAcc.ConsultaReader(query, conextemp, ref msj);
+
+            List<Carrera> listaSalida = new List<Carrera>();
+            if (datos != null)
+            {
+                while (datos.Read())
+                {
+                    listaSalida.Add(new Carrera
+                    {
+                        Id_Carrera = (byte)datos[0],
+                        NombreCarrera = (string)datos[1]
+
+
+                    }
+                     );
+                }
+
+            }
+            else
+            {
+                listaSalida = null;
+            }
+            conextemp.Close();
+            conextemp.Dispose();
+
+            return listaSalida;
+
+        }
+
+
         public Boolean InsertarProgramaED(ProgramaEducativo programapd, ref string mensaje)
         {
             SqlParameter[] param1 = new SqlParameter[3];
@@ -119,61 +157,53 @@ namespace ClassCapaLogicaNegocio
             salida = obAcc.ModificaBDMasSegura(sentenciaSql, obAcc.AbrirConexion(ref mensaje), ref mensaje, param1);
 
             return salida;
-        } 
+        }
 
-
-        public List<Carrera> DevuelveCarreraID(ref string msj)
+        public DataTable DatosEnGridProgramaED(int nom, ref string mens_salida)
         {
-            SqlConnection conextemp = null;
-            string query = "select * from Carrera";
+            string query2 = "select ProgramaEd, nombreCarrea, Extra from ProgramaEducativo P inner join Carrera C on P.F_Carrera = C.id_Carrera where  F_Carrera='" + nom + "'";
+           
+            DataSet cont_atrapa = null;
+            DataTable tablaS = null;
 
-            conextemp = obAcc.AbrirConexion(ref msj);
+            cont_atrapa = obAcc.ConsultaDS(query2, obAcc.AbrirConexion(ref mens_salida), ref mens_salida);
+
+            if (cont_atrapa != null)
+            {
+                tablaS = cont_atrapa.Tables[0];
+            }
+            return tablaS;
+        }
+
+        public SqlDataReader EliminarProgramaEducativo(ProgramaEducativo ProgramaED, ref string mens_salida)
+        {
+
+            SqlConnection conextemp = null;
+            string query = "delete from ProgramaEducativo where ProgramaED='" + ProgramaED.ProgramaEd + "'";
+
+            conextemp = obAcc.AbrirConexion(ref mens_salida);
 
             SqlDataReader datos = null;
-            datos = obAcc.ConsultaReader(query, conextemp, ref msj);
+            datos = obAcc.ConsultaReader(query, conextemp, ref mens_salida);
 
-            List<Carrera> listaSalida = new List<Carrera>();
-            if (datos != null)
-            {
-                while (datos.Read())
-                {
-                    listaSalida.Add(new Carrera
-                    {
-                        Id_Carrera = (int)datos[0],
-                        NombreCarrera = (string)datos[1]
-                       
+            return datos;
+        }
 
-                    }
-                     );
-                }
+        public SqlDataReader ActualizarProgramaED(ProgramaEducativo programaA, string datoAnterior, ref string mensaje)
+        {
+            SqlConnection conextemp = null;
+            string query = "UPDATE ProgramaEducativo SET ProgramaED='" + programaA.ProgramaEd + "',F_Carrera='" + programaA.F_Carrera +"',Extra='" + programaA.Extra + "' where ProgramaED='" + datoAnterior + "'";
 
-            }
-            else
-            {
-                listaSalida = null;
-            }
-            conextemp.Close();
-            conextemp.Dispose();
+            conextemp = obAcc.AbrirConexion(ref mensaje);
 
-            return listaSalida;
+            SqlDataReader datos = null;
+            datos = obAcc.ConsultaReader(query, conextemp, ref mensaje);
+
+            return datos;
+
 
         }
 
-        //public void DropCarrera()
-        //{
-        //    List<Carrera> listaA = null;
-        //    string m = "";
-        //    listaA = DevuelveClientesID(ref m);
-
-        //    if (listaA != null)
-        //    {
-        //      d  .Items.Clear();
-        //        foreach (Carrera a in listaA)
-        //        {
-        //            dlCarrera.Items.Add(new ListItem(a.NombreCarrera, a.Id_Carrera.ToString()));
-        //        }
-        //    }
-        //}
 
     }
 }

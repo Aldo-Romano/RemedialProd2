@@ -31,11 +31,11 @@ namespace WebPresentacion
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if (dlCarrera.Text != "" )
+            if (dropCarrera.Text != "" )
             {
                 Carrera temp = new Carrera()
                 {
-                    NombreCarrera = dlCarrera.SelectedValue
+                    NombreCarrera = dropCarrera.SelectedValue
                 };
 
                 string mensaje1 = "";
@@ -43,7 +43,7 @@ namespace WebPresentacion
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "mensaje1", "SweetAlert('¡Insertado!','" + mensaje1 + "','success')", true);
                 string mensaje2 = "";
 
-                GridView1.DataSource = object1.DatosEnGridCarrera(dlCarrera.SelectedValue ,ref mensaje2);
+                GridView1.DataSource = object1.DatosEnGridCarrera(dropCarrera.SelectedValue ,ref mensaje2);
                 GridView1.DataBind();
             }
             else
@@ -70,17 +70,17 @@ namespace WebPresentacion
 
              object1.EliminarCarrera(temp, ref mensaje1);
             Page.ClientScript.RegisterStartupScript(this.GetType(), "mensaje1", "SweetAlert('¡Eliminado!','Se ha elimando correctamente','success')", true);
-
+            
 
         }
 
         protected void Button2_Click1(object sender, EventArgs e)
         {
-            if (dlCarrera.Text != "")
+            if (dropCarrera1.Text != "")
             {
                 Carrera temp = new Carrera()
                 {
-                    NombreCarrera = dlCarrera1.SelectedValue
+                    NombreCarrera = dropCarrera1.SelectedValue
                 };
 
                 string mensaje1 = "";

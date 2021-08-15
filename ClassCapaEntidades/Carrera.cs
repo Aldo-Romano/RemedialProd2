@@ -8,7 +8,7 @@ namespace ClassCapaEntidades
 {
     public class Carrera
     {
-        public int Id_Carrera { get; set; }
+        public byte Id_Carrera { get; set; }
         public string NombreCarrera { get; set; }
 
     }
