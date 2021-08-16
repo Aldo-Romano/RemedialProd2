@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="LogicaNegociosCarrera.cs" />
     <Compile Include="LogicaNegociosCuatriGrupo.cs" />
+    <Compile Include="LogicaNegociosMateria.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

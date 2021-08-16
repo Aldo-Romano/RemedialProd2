@@ -44,6 +44,7 @@
     <Compile Include="Carrera.cs" />
     <Compile Include="Cuatrimestre.cs" />
     <Compile Include="GrupoCuatrimestre.cs" />
+    <Compile Include="Materia.cs" />
     <Compile Include="ProgramaEducativo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
