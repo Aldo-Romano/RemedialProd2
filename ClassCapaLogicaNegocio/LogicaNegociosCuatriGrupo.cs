@@ -71,6 +71,53 @@ namespace ClassCapaLogicaNegocio
             return salida;
         }
 
+        public DataTable DatosEnGridCuati(Cuatrimestre cuatrimestre, ref string mens_salida)
+        {
+            string query2 = "select Periodo, Anio, Inicio, Fin,Extra where Periodo='" + cuatrimestre.Periodo + "'";
+            DataSet cont_atrapa = null;
+            DataTable tablaS = null;
+
+            cont_atrapa = obAcc.ConsultaDS(query2, obAcc.AbrirConexion(ref mens_salida), ref mens_salida);
+
+            if (cont_atrapa != null)
+            {
+                tablaS = cont_atrapa.Tables[0];
+            }
+            return tablaS;
+        }
+
+        public SqlDataReader EliminarCuatri(Cuatrimestre cuatriD, ref string mens_salida)
+        {
+
+            SqlConnection conextemp = null;
+            string query = "delete from Cuatrimestre where Periodo='" + cuatriD.Periodo + "'";
+
+            conextemp = obAcc.AbrirConexion(ref mens_salida);
+
+            SqlDataReader datos = null;
+            datos = obAcc.ConsultaReader(query, conextemp, ref mens_salida);
+
+            return datos;
+        }
+
+        public SqlDataReader ActualizarCuatri(Cuatrimestre cuatriA, string datoAnterior, ref string mensaje)
+        {
+            SqlConnection conextemp = null;
+            string query = "UPDATE Carrera SET Periodo='" + cuatriA.Periodo + "',Anio='" +cuatriA.Anio + "',Inicio='" + cuatriA.Inicio+ "',Fin='" + cuatriA.Fin + "',Extra='" + cuatriA.Extra + "' where Periodo='" + datoAnterior + "'";
+
+            conextemp = obAcc.AbrirConexion(ref mensaje);
+
+            SqlDataReader datos = null;
+            datos = obAcc.ConsultaReader(query, conextemp, ref mensaje);
+
+            return datos;
+
+
+        }
+
+
+
+
         public Boolean InsertarGrupoCuatrimestre(GrupoCuatrimestre grupoCuatri, ref string mensaje)
         {
             SqlParameter[] param1 = new SqlParameter[6];
@@ -129,15 +176,57 @@ namespace ClassCapaLogicaNegocio
                 Value = grupoCuatri.Extra
 
             };
-
-
-
             string sentenciaSql = "insert into GrupoCuatrimestre values(@f_progEd,@f_grupo,@f_cuatri,@turno,@modalidad,@extra);";
 
             Boolean salida = false;
             salida = obAcc.ModificaBDMasSegura(sentenciaSql, obAcc.AbrirConexion(ref mensaje), ref mensaje, param1);
 
             return salida;
+        }
+
+
+        public DataTable DatosEnGridGrupoCuati(string grup, ref string mens_salida)
+        {
+            string query2 = "select ProgramaEd,nombreCarrea,Grado, Letra,Turno,Modalidad,G.Extra from GrupoCuatrimestre G inner join ProgramaEducativo P on G.F_ProgEd=P.Id_pe inner join Grupo GR on G.F_Grupo=GR.Id_grupo inner join Carrera C on G.F_Cuatri=C.id_Carrera where F_Grupo='" + grup + "'";
+            DataSet cont_atrapa = null;
+            DataTable tablaS = null;
+
+            cont_atrapa = obAcc.ConsultaDS(query2, obAcc.AbrirConexion(ref mens_salida), ref mens_salida);
+
+            if (cont_atrapa != null)
+            {
+                tablaS = cont_atrapa.Tables[0];
+            }
+            return tablaS;
+        }
+
+        public SqlDataReader EliminarGrupoCuatri(GrupoCuatrimestre grupoC, ref string mens_salida)
+        {
+
+            SqlConnection conextemp = null;
+            string query = "delete from GrupoCuatrimestre where F_Grupo='" + grupoC.F_Grupo + "'";
+
+            conextemp = obAcc.AbrirConexion(ref mens_salida);
+
+            SqlDataReader datos = null;
+            datos = obAcc.ConsultaReader(query, conextemp, ref mens_salida);
+
+            return datos;
+        }
+
+        public SqlDataReader ActualizarGrupoCuatri(GrupoCuatrimestre grupoC, string datoAnterior, ref string mensaje)
+        {
+            SqlConnection conextemp = null;
+            string query = "UPDATE GrupoCuatrimestre SET F_ProgEd='" + grupoC.F_ProgEd + "',F_Grupo='" + grupoC.F_Grupo + "',F_Cuatri='" + grupoC.F_Cuatri + "',Turno='" + grupoC.Turno + "',Modalidad='" + grupoC.Modalidad + "',Extra='" + grupoC.Extra + "' where Periodo='" + datoAnterior + "'";
+
+            conextemp = obAcc.AbrirConexion(ref mensaje);
+
+            SqlDataReader datos = null;
+            datos = obAcc.ConsultaReader(query, conextemp, ref mensaje);
+
+            return datos;
+
+
         }
     }
 }
