@@ -187,7 +187,7 @@ namespace ClassCapaLogicaNegocio
 
         public DataTable DatosEnGridGrupoCuati(GrupoCuatrimestre grupoCuatrimestreM, ref string mens_salida)
         {
-            string query2 = "select ProgramaEd,nombreCarrea,Grado, Letra,Turno,Modalidad,G.Extra from GrupoCuatrimestre G inner join ProgramaEducativo P on G.F_ProgEd=P.Id_pe inner join Grupo GR on G.F_Grupo=GR.Id_grupo inner join Carrera C on G.F_Cuatri=C.id_Carrera where F_Grupo='" + grupoCuatrimestreM.Id_GrupCuat + "'";
+            string query2 = "select ProgramaEd,nombreCarrea,Grado, Letra,Turno,Modalidad,G.Extra from GrupoCuatrimestre G inner join ProgramaEducativo P on G.F_ProgEd=P.Id_pe inner join Grupo GR on G.F_Grupo=GR.Id_grupo inner join Carrera C on P.F_Carrera=C.id_Carrera where F_Grupo='" + grupoCuatrimestreM.Id_GrupCuat + "'";
             DataSet cont_atrapa = null;
             DataTable tablaS = null;
 

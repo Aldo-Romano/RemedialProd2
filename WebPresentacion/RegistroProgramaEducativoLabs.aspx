@@ -16,9 +16,8 @@
 
 
 </head>
-<body>
+<body style="background-image:url(IMG/FondoW.jpg)">
     <form id="form1" runat="server">
-        <div>
 
          <div style="background-color:mediumseagreen">
          <nav class="navbar navbar-light bg-light">

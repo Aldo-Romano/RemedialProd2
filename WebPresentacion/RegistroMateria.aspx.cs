@@ -38,7 +38,6 @@ namespace WebPresentacion
                     NombeMateria = txtMateria.Text,
                     HorasSemana = Convert.ToByte(txtHora.Text),
                     Extra = txtExtra.Text
-
                 };
 
 
