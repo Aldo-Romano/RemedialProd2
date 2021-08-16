@@ -103,7 +103,7 @@ namespace ClassCapaLogicaNegocio
         public SqlDataReader ActualizarCuatri(Cuatrimestre cuatriA, string datoAnterior, ref string mensaje)
         {
             SqlConnection conextemp = null;
-            string query = "UPDATE Carrera SET Periodo='" + cuatriA.Periodo + "',Anio='" +cuatriA.Anio + "',Inicio='" + cuatriA.Inicio+ "',Fin='" + cuatriA.Fin + "',Extra='" + cuatriA.Extra + "' where Periodo='" + datoAnterior + "'";
+            string query = "UPDATE Carrera SET Periodo='" + cuatriA.Periodo + "',Anio='" + cuatriA.Anio + "',Inicio='" + cuatriA.Inicio + "',Fin='" + cuatriA.Fin + "',Extra='" + cuatriA.Extra + "' where Periodo='" + datoAnterior + "'";
 
             conextemp = obAcc.AbrirConexion(ref mensaje);
 
@@ -225,8 +225,72 @@ namespace ClassCapaLogicaNegocio
             datos = obAcc.ConsultaReader(query, conextemp, ref mensaje);
 
             return datos;
+        }
 
+        public List<ProgramaEducativo> ListaProgramaEducativo(ref string mensaje)
+        {
+            SqlConnection conex = null;
+            string query = "select * from ProgramaEducativo";
 
+            conex = obAcc.AbrirConexion(ref mensaje);
+
+            SqlDataReader datos = null;
+            datos = obAcc.ConsultaReader(query, conex, ref mensaje);
+
+            List<ProgramaEducativo> lista = new List<ProgramaEducativo>();
+            if (datos != null)
+            {
+                while (datos.Read())
+                {
+                    lista.Add(new ProgramaEducativo
+                    {
+                        Id_Pe = (short)datos[0],
+                        ProgramaEd = datos[1].ToString(),
+                    }
+                     );
+                }
+            }
+            else
+            {
+                lista = null;
+            }
+            conex.Close();
+            conex.Dispose();
+
+            return lista;
+        }
+
+        public List<Cuatrimestre> ListaCuatri(ref string mensaje)
+        {
+            SqlConnection conex = null;
+            string query = "select * from Cuatrimestre";
+
+            conex = obAcc.AbrirConexion(ref mensaje);
+
+            SqlDataReader datos = null;
+            datos = obAcc.ConsultaReader(query, conex, ref mensaje);
+
+            List<Cuatrimestre> lista = new List<Cuatrimestre>();
+            if (datos != null)
+            {
+                while (datos.Read())
+                {
+                    lista.Add(new Cuatrimestre
+                    {
+                        Id_Cuatrimestres = (short)datos[0],
+                        Periodo = datos[1].ToString(),
+                    }
+                     );
+                }
+            }
+            else
+            {
+                lista = null;
+            }
+            conex.Close();
+            conex.Dispose();
+
+            return lista;
         }
     }
 }
