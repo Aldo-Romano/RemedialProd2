@@ -47,14 +47,10 @@ namespace WebPresentacion
                 object2.InsertarGrupoCuatrimestre(temp, ref mensaje1);
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "mensaje1", "SweetAlert('¡Insertado!','" + mensaje1 + "','success')", true);
 
-                GrupoCuatrimestre temp1 = new GrupoCuatrimestre()
-                {
-                    F_Grupo = Convert.ToInt16(dropGrupo.SelectedValue)
-                };
-
+               
                 string mensaje2 = "";
 
-                GridView1.DataSource = object2.DatosEnGridGrupoCuati(temp1, ref mensaje2);
+                GridView1.DataSource = object2.DatosEnGridGrupoCuati(Convert.ToInt16(dropGrupo.SelectedValue), ref mensaje2);
                 GridView1.DataBind();
             }
             else

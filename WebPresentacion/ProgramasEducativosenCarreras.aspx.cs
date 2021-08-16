@@ -44,26 +44,18 @@ namespace WebPresentacion
         protected void Button2_Click(object sender, EventArgs e)
         {
 
-            Carrera temp = new Carrera()
-            {
-                Id_Carrera = Convert.ToByte(dropCarrera.SelectedValue)
-            };
-
+        
             string mensaje2 = "";
-            GridView1.DataSource = object1.DatosEnGridProgramaCarrera(temp, ref mensaje2);
+            GridView1.DataSource = object1.DatosEnGridProgramaCarrera(Convert.ToInt16(dropCarrera.SelectedValue), ref mensaje2);
             GridView1.DataBind();
         }
 
 
         protected void btnMostrarAc_Click(object sender, EventArgs e)
         {
-            Carrera temp = new Carrera()
-            {
-                Id_Carrera = Convert.ToByte(dropCarrera1.SelectedValue)
-            };
 
             string mensaje2 = "";
-            GridView1.DataSource = object1.DatosEnGrid(temp,Convert.ToInt16(dropPeriodoC.SelectedValue), ref mensaje2);
+            GridView1.DataSource = object1.DatosEnGrid(Convert.ToInt16(dropCarrera1.SelectedValue), Convert.ToInt16(dropPeriodoC.SelectedValue), ref mensaje2);
             GridView1.DataBind();
         }
 

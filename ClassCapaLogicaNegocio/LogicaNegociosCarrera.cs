@@ -205,9 +205,9 @@ namespace ClassCapaLogicaNegocio
         }
 
 
-        public DataTable DatosEnGridProgramaCarrera(Carrera carreraMostrar, ref string mens_salida)
+        public DataTable DatosEnGridProgramaCarrera(int nom, ref string mens_salida)
         {
-            string query2 = "select nombreCarrea,ProgramaEd from ProgramaEducativo P inner join Carrera C on P.F_Carrera=C.id_Carrera where id_Carrera='" + carreraMostrar.Id_Carrera + "'";
+            string query2 = "select nombreCarrea,ProgramaEd from ProgramaEducativo P inner join Carrera C on P.F_Carrera=C.id_Carrera where id_Carrera='" + nom + "'";
 
             DataSet cont_atrapa = null;
             DataTable tablaS = null;
@@ -221,9 +221,9 @@ namespace ClassCapaLogicaNegocio
             return tablaS;
         }
 
-        public DataTable DatosEnGrid(Carrera carreraMostrar,int periodo, ref string mens_salida)
+        public DataTable DatosEnGrid(int nom,int periodo, ref string mens_salida)
         {
-            string query2 = "select nombreCarrea,Grado,Letra,Periodo,ProgramaEd from GrupoCuatrimestre G inner join Grupo Gp on G.F_Grupo=Gp.Id_grupo inner join Carrera C inner join ProgramaEducativo P on C.id_Carrera=P.F_Carrera on G.F_ProgEd=P.Id_pe inner join Cuatrimestre Cu on G.F_Cuatri=Cu.id_Cuatrimestre where id_Carrera='" + carreraMostrar.Id_Carrera + "' and id_Cuatrimestre='" + periodo + "';";
+            string query2 = "select nombreCarrea,Grado,Letra,Periodo,ProgramaEd from GrupoCuatrimestre G inner join Grupo Gp on G.F_Grupo=Gp.Id_grupo inner join Carrera C inner join ProgramaEducativo P on C.id_Carrera=P.F_Carrera on G.F_ProgEd=P.Id_pe inner join Cuatrimestre Cu on G.F_Cuatri=Cu.id_Cuatrimestre where id_Carrera='" + nom + "' and Id_pe='" + periodo + "';";
 
             DataSet cont_atrapa = null;
             DataTable tablaS = null;

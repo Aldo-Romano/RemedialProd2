@@ -17,7 +17,7 @@
 </head>
 <body style="background-image:url(IMG/FondoW.jpg)">
     <form id="form1" runat="server">
-        <div>
+       
 
          <div style="background-color:mediumseagreen">
          <nav class="navbar navbar-light bg-light">
@@ -28,10 +28,11 @@
 
           <br />
         
-      <asp:Button ID="btnCargar" runat="server" class="btn btn-primary" Text="Cargar Datos." OnClick="btnCargar_Click"/>
-           <br />
-           <br />
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <div>
+        <asp:Button ID="btnCargar" runat="server" class="btn btn-primary" Text="Cargar Datos." OnClick="btnCargar_Click"/>
+        <br />
+        <br />
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
          Mostrar Programas Educativos en Carreras</button>
          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
          <div class="modal-dialog">
@@ -53,6 +54,7 @@
          </div>
          </div>
         </div>
+         </div>
 
 
             <center>
@@ -71,13 +73,14 @@
             <SortedDescendingHeaderStyle BackColor="#00547E" />
             </asp:GridView>
            </center>
-      </div>
 
               <br />
              <br />
              <br />
                  
         <br />
+
+         <div>
          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">
          Mostrar Grupos Asociados a un Cuatrimestre</button>
          <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
@@ -104,6 +107,7 @@
          </div>
          </div>
         </div>
+         </div>
 
             <center>
             <asp:GridView ID="GridView2" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3">
@@ -123,7 +127,6 @@
            </center>
 
 
-          </div>
 
             
             <div style="float:right">
