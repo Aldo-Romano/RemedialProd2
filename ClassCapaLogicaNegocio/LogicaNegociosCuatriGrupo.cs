@@ -58,7 +58,7 @@ namespace ClassCapaLogicaNegocio
                 SqlDbType = SqlDbType.VarChar,
                 Size = 50,
                 Direction = ParameterDirection.Input,
-                Value = cuatrimestre.Fin
+                Value = cuatrimestre.Extra
 
             };
 
@@ -73,7 +73,7 @@ namespace ClassCapaLogicaNegocio
 
         public DataTable DatosEnGridCuati(Cuatrimestre cuatrimestre, ref string mens_salida)
         {
-            string query2 = "select Periodo, Anio, Inicio, Fin,Extra where Periodo='" + cuatrimestre.Periodo + "'";
+            string query2 = "select Periodo, Anio, Inicio, Fin,Extra from Cuatrimestre where Periodo='" + cuatrimestre.Periodo + "'";
             DataSet cont_atrapa = null;
             DataTable tablaS = null;
 
@@ -185,9 +185,9 @@ namespace ClassCapaLogicaNegocio
         }
 
 
-        public DataTable DatosEnGridGrupoCuati(string grup, ref string mens_salida)
+        public DataTable DatosEnGridGrupoCuati(GrupoCuatrimestre grupoCuatrimestreM, ref string mens_salida)
         {
-            string query2 = "select ProgramaEd,nombreCarrea,Grado, Letra,Turno,Modalidad,G.Extra from GrupoCuatrimestre G inner join ProgramaEducativo P on G.F_ProgEd=P.Id_pe inner join Grupo GR on G.F_Grupo=GR.Id_grupo inner join Carrera C on G.F_Cuatri=C.id_Carrera where F_Grupo='" + grup + "'";
+            string query2 = "select ProgramaEd,nombreCarrea,Grado, Letra,Turno,Modalidad,G.Extra from GrupoCuatrimestre G inner join ProgramaEducativo P on G.F_ProgEd=P.Id_pe inner join Grupo GR on G.F_Grupo=GR.Id_grupo inner join Carrera C on G.F_Cuatri=C.id_Carrera where F_Grupo='" + grupoCuatrimestreM.Id_GrupCuat + "'";
             DataSet cont_atrapa = null;
             DataTable tablaS = null;
 
@@ -244,7 +244,7 @@ namespace ClassCapaLogicaNegocio
                 {
                     lista.Add(new ProgramaEducativo
                     {
-                        Id_Pe = (short)datos[0],
+                        Id_Pe = (byte)datos[0],
                         ProgramaEd = datos[1].ToString(),
                     }
                      );

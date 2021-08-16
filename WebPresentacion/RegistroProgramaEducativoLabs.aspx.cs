@@ -134,5 +134,10 @@ namespace WebPresentacion
                 }
             }
         }
+
+        protected void Button6_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("RegistroCuatrimestre.aspx");
+        }
     }
 }

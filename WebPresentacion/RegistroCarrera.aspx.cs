@@ -94,5 +94,10 @@ namespace WebPresentacion
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "mensaje2", "SweetAlert('¡Error!','Inserte todos los datos','error')", true);
             }
         }
+
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("RegistroProgramaEducativoLabs.aspx");
+        }
     }
 }

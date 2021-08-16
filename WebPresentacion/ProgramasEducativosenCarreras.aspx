@@ -23,22 +23,15 @@
          <nav class="navbar navbar-light bg-light">
          <div class="container-fluid">
          <img src="IMG/UtpFondo.png"/>
-         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-         <li class="nav-item">
-         <a class="navbar-brand" href="Inicio.aspx">Inicio</a>
-         </li>
-         </ul>
-         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-          <a class="navbar-brand" href="RegistroCarrera.aspx">Registro Carrera</a>
-          </li>
-          </ul>
-         </div>
          </nav>
          </div>
 
           <br />
-         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        
+      <asp:Button ID="btnCargar" runat="server" class="btn btn-primary" Text="Cargar Datos." OnClick="btnCargar_Click"/>
+           <br />
+           <br />
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
          Mostrar Programas Educativos en Carreras</button>
          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
          <div class="modal-dialog">
@@ -54,15 +47,16 @@
          <asp:DropDownList ID="dropCarrera" runat="server"></asp:DropDownList>
          <div class="modal-footer">
          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-         <asp:Button ID="Button1" class="btn btn-primary" runat="server" Text="Mostrar" OnClick="Button2_Click"/>
+          <asp:Button ID="Button1" class="btn btn-primary" runat="server" Text="Mostrar" OnClick="Button2_Click"/>
          </div>
          </div>
          </div>
          </div>
         </div>
 
+
             <center>
-            <asp:GridView ID="GridView1" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+            <asp:GridView ID="GridView1" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3">
             <Columns>
             <asp:CommandField HeaderText="Seleccionar" ShowSelectButton="True" />
             </Columns>
@@ -98,12 +92,13 @@
          <asp:Label ID="Label2" runat="server"  class="form-label" Text="Nombre de la Carrera:"></asp:Label>
           <br />
          <asp:DropDownList ID="dropCarrera1" runat="server"></asp:DropDownList>
+             <br />
          <asp:Label ID="Label3" runat="server"  class="form-label" Text="Perido del Cuatrimestre:"></asp:Label>
           <br />
          <asp:DropDownList ID="dropPeriodoC" runat="server"></asp:DropDownList>
          <div class="modal-footer">
          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-         <asp:Button ID="Button2" class="btn btn-primary" runat="server" Text="Mostrar" OnClick="Button2_Click"/>
+         <asp:Button ID="btnMostrarAc" class="btn btn-primary" runat="server" Text="Mostrar" OnClick="btnMostrarAc_Click" />
          </div>
          </div>
          </div>
@@ -111,7 +106,7 @@
         </div>
 
             <center>
-            <asp:GridView ID="GridView2" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+            <asp:GridView ID="GridView2" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3">
             <Columns>
             <asp:CommandField HeaderText="Seleccionar" ShowSelectButton="True" />
             </Columns>
@@ -127,7 +122,15 @@
             </asp:GridView>
            </center>
 
+
           </div>
+
+            
+            <div style="float:right">
+            <asp:Button ID="Button4" runat="server" class="btn btn-primary" Text="Finalizar" OnClick="Button4_Click" />
+            </div>   
+                             
+ 
 
     </form>
 </body>

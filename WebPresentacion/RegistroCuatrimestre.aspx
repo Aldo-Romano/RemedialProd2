@@ -19,21 +19,10 @@
     <form id="form1" runat="server">
         <div>
 
-         <div style="background-color:mediumseagreen">
+          <div style="background-color:mediumseagreen">
          <nav class="navbar navbar-light bg-light">
-         <div class="container-fluid">
+         <div class="container-fluid" >
          <img src="IMG/UtpFondo.png"/>
-         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-         <li class="nav-item">
-         <a class="navbar-brand" href="Inicio.aspx">Inicio</a>
-         </li>
-         </ul>
-         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-          <a class="navbar-brand" href="RegistroCarrera.aspx">Registro Carrera</a>
-          </li>
-          </ul>
-         </div>
          </nav>
          </div>
 
@@ -85,6 +74,7 @@
          </div>
          </div>
         </div>
+                 
 
          <center>
             <asp:GridView ID="GridView1" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
@@ -104,7 +94,7 @@
              <br />
             <asp:Label ID="Label6" runat="server" Font-Bold="True" Font-Italic="True" Font-Names="Bodoni MT Condensed" Font-Size="Large" Text="Cuatrimestre Seleccionada: "></asp:Label>
 &nbsp;&nbsp;&nbsp;
-            <asp:Label ID="lbProgramaEd" runat="server" Text="________________"></asp:Label>
+            <asp:Label ID="lbCuatri" runat="server" Text="________________"></asp:Label>
 &nbsp;&nbsp;&nbsp;
          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">
           Actualizar Cuatrimestre</button>
@@ -147,13 +137,19 @@
          </div>
          <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-         <asp:Button ID="Button1" class="btn btn-primary" runat="server" Text="Actualizar"  />
+         <asp:Button ID="Button1" class="btn btn-primary" runat="server" Text="Actualizar"  OnClick="Button1_Click" />
          </div>
          </div>
          </div>
          </div>    
+                      
+
         <asp:Button ID="Button3" runat="server" class="btn btn-primary" Text="Eliminar" OnClick="Button3_Click" />
         </center>
+
+        <div style="float:right">
+            <asp:Button ID="Button4" runat="server" class="btn btn-primary" Text="Siguiente" OnClick="Button4_Click"  />
+            </div>  
 
     </form>
 </body>

@@ -22,19 +22,8 @@
 
         <div style="background-color:mediumseagreen">
          <nav class="navbar navbar-light bg-light">
-         <div class="container-fluid">
+         <div class="container-fluid" >
          <img src="IMG/UtpFondo.png"/>
-         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-         <li class="nav-item">
-         <a class="navbar-brand" href="Inicio.aspx">Inicio</a>
-         </li>
-         </ul>
-         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-          <a class="navbar-brand" href="RegistroCarrera.aspx">Registro Carrera</a>
-          </li>
-          </ul>
-         </div>
          </nav>
          </div>
             
@@ -137,6 +126,10 @@
         </div>&nbsp;&nbsp;&nbsp;
             <asp:Button ID="Button3" runat="server" class="btn btn-primary" Text="Eliminar" OnClick="Button3_Click" />
             </center>
+
+        <div style="float:right">
+        <asp:Button ID="Button4" runat="server" class="btn btn-primary" Text="Siguiente" OnClick="Button4_Click" />
+       </div>      
 
 
                          
