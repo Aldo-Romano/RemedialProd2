@@ -292,5 +292,39 @@ namespace ClassCapaLogicaNegocio
 
             return lista;
         }
+
+        public List<Grupo> ListaGrupo(ref string mensaje)
+        {
+            SqlConnection conex = null;
+            string query = "select * from Grupo";
+
+            conex = obAcc.AbrirConexion(ref mensaje);
+
+            SqlDataReader datos = null;
+            datos = obAcc.ConsultaReader(query, conex, ref mensaje);
+
+            List<Grupo> lista = new List<Grupo>();
+            if (datos != null)
+            {
+                while (datos.Read())
+                {
+                    lista.Add(new Grupo
+                    {
+                        Id_Grupo = (short)datos[0],
+                        Grado =  (byte)datos[1],
+                    }
+                     );
+                }
+            }
+            else
+            {
+                lista = null;
+            }
+            conex.Close();
+            conex.Dispose();
+
+            return lista;
+        }
+
     }
 }
