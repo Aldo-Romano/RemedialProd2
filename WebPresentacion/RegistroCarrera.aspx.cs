@@ -38,12 +38,13 @@ namespace WebPresentacion
                     NombreCarrera = dropCarrera.SelectedValue
                 };
 
+
                 string mensaje1 = "";
                 object1.InsertarCarrera(temp, ref mensaje1);
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "mensaje1", "SweetAlert('¡Insertado!','" + mensaje1 + "','success')", true);
                 string mensaje2 = "";
 
-                GridView1.DataSource = object1.DatosEnGridCarrera(dropCarrera.SelectedValue ,ref mensaje2);
+                GridView1.DataSource = object1.DatosEnGridCarrera(temp,ref mensaje2);
                 GridView1.DataBind();
             }
             else

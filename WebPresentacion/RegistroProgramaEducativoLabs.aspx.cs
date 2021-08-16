@@ -47,7 +47,13 @@ namespace WebPresentacion
                 object1.InsertarProgramaED (temp, ref mensaje1);
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "mensaje1", "SweetAlert('¡Insertado!','" + mensaje1 + "','success')", true);
                 string mensaje2 = "";
-                GridView1.DataSource = object1.DatosEnGridProgramaED(Convert.ToInt16(dropProgramaED.SelectedValue), ref mensaje2);
+
+                ProgramaEducativo temp1 = new ProgramaEducativo()
+                {
+                    F_Carrera = Convert.ToInt16(dropProgramaED.SelectedValue),
+                };
+
+                GridView1.DataSource = object1.DatosEnGridProgramaED(temp1, ref mensaje2);
                 GridView1.DataBind();
             }
             else

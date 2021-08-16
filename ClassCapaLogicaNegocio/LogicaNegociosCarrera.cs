@@ -38,9 +38,9 @@ namespace ClassCapaLogicaNegocio
         }
 
 
-        public DataTable DatosEnGridCarrera(string nom, ref string mens_salida)
+        public DataTable DatosEnGridCarrera(Carrera carreraMostrar, ref string mens_salida)
         {
-            string query2 = "select nombreCarrea from carrera where nombreCarrea='" + nom +"'" ;
+            string query2 = "select nombreCarrea from carrera where nombreCarrea='" + carreraMostrar.NombreCarrera +"'" ;
             DataSet cont_atrapa = null;
             DataTable tablaS = null;
 
@@ -159,9 +159,9 @@ namespace ClassCapaLogicaNegocio
             return salida;
         }
 
-        public DataTable DatosEnGridProgramaED(int nom, ref string mens_salida)
+        public DataTable DatosEnGridProgramaED(ProgramaEducativo programaMostrar, ref string mens_salida)
         {
-            string query2 = "select ProgramaEd, nombreCarrea, Extra from ProgramaEducativo P inner join Carrera C on P.F_Carrera = C.id_Carrera where  F_Carrera='" + nom + "'";
+            string query2 = "select ProgramaEd, nombreCarrea, Extra from ProgramaEducativo P inner join Carrera C on P.F_Carrera = C.id_Carrera where  F_Carrera='" + programaMostrar.F_Carrera + "'";
            
             DataSet cont_atrapa = null;
             DataTable tablaS = null;
@@ -202,6 +202,39 @@ namespace ClassCapaLogicaNegocio
             return datos;
 
 
+        }
+
+
+        public DataTable DatosEnGridProgramaCarrera(Carrera carreraMostrar, ref string mens_salida)
+        {
+            string query2 = "select nombreCarrea,ProgramaEd from ProgramaEducativo P inner join Carrera C on P.F_Carrera=C.id_Carrera where nombreCarrea='" + carreraMostrar.NombreCarrera + "'";
+
+            DataSet cont_atrapa = null;
+            DataTable tablaS = null;
+
+            cont_atrapa = obAcc.ConsultaDS(query2, obAcc.AbrirConexion(ref mens_salida), ref mens_salida);
+
+            if (cont_atrapa != null)
+            {
+                tablaS = cont_atrapa.Tables[0];
+            }
+            return tablaS;
+        }
+
+        public DataTable DatosEnGrid(Carrera carreraMostrar,string periodo, ref string mens_salida)
+        {
+            string query2 = "select nombreCarrea,Grado,Letra,Periodo,ProgramaEd from GrupoCuatrimestre G inner join Grupo Gp on G.F_Grupo=Gp.Id_grupo inner join Carrera C inner join ProgramaEducativo P on C.id_Carrera=P.F_Carrera on G.F_ProgEd=P.Id_pe inner join Cuatrimestre Cu on G.F_Cuatri=Cu.id_Cuatrimestre where nombreCarrea='" + carreraMostrar.NombreCarrera + "' and Periodo='" + periodo + "';";
+
+            DataSet cont_atrapa = null;
+            DataTable tablaS = null;
+
+            cont_atrapa = obAcc.ConsultaDS(query2, obAcc.AbrirConexion(ref mens_salida), ref mens_salida);
+
+            if (cont_atrapa != null)
+            {
+                tablaS = cont_atrapa.Tables[0];
+            }
+            return tablaS;
         }
 
 
