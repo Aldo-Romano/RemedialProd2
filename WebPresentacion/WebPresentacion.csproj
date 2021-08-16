@@ -81,7 +81,11 @@
     <Content Include="js\bootstrap.bundle.min.js" />
     <Content Include="js\JavaScript.js" />
     <Content Include="js\sweetalert2.all.min.js" />
+    <Content Include="ProgramasEducativosenCarreras.aspx" />
     <Content Include="RegistroCarrera.aspx" />
+    <Content Include="RegistroCuatrimestre.aspx" />
+    <Content Include="RegistroGrupoCuatrimestre.aspx" />
+    <Content Include="RegistroMateria.aspx" />
     <Content Include="RegistroProgramaEducativoLabs.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -93,6 +97,13 @@
     <Compile Include="Inicio.aspx.designer.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ProgramasEducativosenCarreras.aspx.cs">
+      <DependentUpon>ProgramasEducativosenCarreras.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProgramasEducativosenCarreras.aspx.designer.cs">
+      <DependentUpon>ProgramasEducativosenCarreras.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistroCarrera.aspx.cs">
       <DependentUpon>RegistroCarrera.aspx</DependentUpon>
@@ -100,6 +111,27 @@
     </Compile>
     <Compile Include="RegistroCarrera.aspx.designer.cs">
       <DependentUpon>RegistroCarrera.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistroCuatrimestre.aspx.cs">
+      <DependentUpon>RegistroCuatrimestre.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistroCuatrimestre.aspx.designer.cs">
+      <DependentUpon>RegistroCuatrimestre.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistroGrupoCuatrimestre.aspx.cs">
+      <DependentUpon>RegistroGrupoCuatrimestre.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistroGrupoCuatrimestre.aspx.designer.cs">
+      <DependentUpon>RegistroGrupoCuatrimestre.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistroMateria.aspx.cs">
+      <DependentUpon>RegistroMateria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistroMateria.aspx.designer.cs">
+      <DependentUpon>RegistroMateria.aspx</DependentUpon>
     </Compile>
     <Compile Include="RegistroProgramaEducativoLabs.aspx.cs">
       <DependentUpon>RegistroProgramaEducativoLabs.aspx</DependentUpon>
